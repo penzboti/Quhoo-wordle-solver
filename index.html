@@ -10,17 +10,57 @@
         body {
             width: 95vw;
         }
+        div {
+            margin: 10px;
+        }
+        .feedback {
+            background-color: black;
+            height: 100px;
+
+            display: flex;
+            flex-direction: row; 
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+        }
+        .letter {
+            font-size: 40px;
+            width: 40px;
+            text-align: center;
+
+            cursor: grab;
+        }
+        .letter-white {background-color: gray;}
+        .letter-yellow {background-color: yellow;}
+        .letter-green {background-color: green;}
+
+        .words {
+            background-color: black;
+            height: 100px;
+            color: white;
+            overflow-wrap: break-word;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
-    <input type="text" id="guess" placeholder="a szó">
-    <input type="text" id="feedback" placeholder="w=fehér, y=sárga, g=zöld.">
-    <input type="button" value="Make guess!" onclick="guessWord()">
-    <input type="button" value="restart" onclick="start()">
+    <div>
+        <input type="text" id="guess" class="input" placeholder="szövegdoboz">
+        <input type="button" value="Keresés indítása" onclick="guessWordStart()" class="button">
+        <input type="button" value="Újrakezdés" onclick="start()" class="button">
+    </div>
 
-    <!-- <div id="feedback"></div> -->
-    
-    <div id="words"></div>
+    <div id="feedback" class="feedback"></div>
+    <div id="words" class="words"></div>
+
+    <div>
+        Írd be ugyan azt a szót a szövegdobozba, amivel a wordle-nél kezdtél. <br>
+        Ha beírtad a szót a szövegdobozba, rá tudsz kattintani lejjebb a betűkre, hogy beállítsd mit kaptál vissza. <br>
+        Enter lenyomásával, vagy a 'keresés indítása' gomb megnyomásával elindíthatod a szókeresést. <br>
+        Ezt ismételd meg addig, míg kitaláltad a szót. <br>
+        Ha újra szeretnéd kezdeni, kattints az 'újrakezdés' gombra.
+    </div>
 
     <script src="solver.js"></script>
 </body>
